@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="recursos/JS/script.js"></script>
+  </head>
+  <body>
+    <a-scene animation-timeline__1="timeline: #myTimeline; loop: true">
+        <a-assets>
+            <!--Modelo de Wicked_Vixx en Sketchfab-->
+            <a-asset-item id="arma" src="recursos/arma/scene.gltf"></a-asset-item>
+            <img id="sky" src="recursos/Imagenes/sky.jpg">
+            <img id="madera" src="recursos/Imagenes/madera_textura.png">
+        </a-assets>
+        
+
+        <a-sky src="#sky"></a-sky>
+        
+        <a-entity  class="orbita" position="-5 0 -20" animation="property: position; to: 5 0 -20;dir: alternate; easing:linear; dur: 1000;loop: true">
+          
+        </a-entity>
+        <a-plane  position="0 -3 -19" height="5" width="10" src="recursos/Imagenes/madera.png" repeat="1 1" normal-map="#madera" normal-scale="1 1"></a-plane>
+
+        <a-entity  class="orbita" position="-20 8 -15" animation="property: position; to: -20 0 -15; dir: alternate; easing:linear; dur: 1000;loop: true">
+          
+        </a-entity>
+
+        <a-entity  class="orbita" position="-5 8 -10" animation="property: position; to: 5 8 -10;dir: alternate; easing:linear; dur: 1000;loop: true">
+         
+        </a-entity>
+
+        <a-entity  class="orbita circular" position="10 6 -10" rotation="0 -45 -20"animation="property: rotation; to: 0 -45 200;dir: alternate; easing:linear; dur: 1000;loop: true">
+          
+        </a-entity>
+        <a-plane position="8 6 -8" rotation="0 -45 0" height="3" width="13" src="recursos/Imagenes/madera.png" repeat="1 1"normal-map="#madera" normal-scale="1 1"></a-plane>
+
+        <a-entity  class="orbita" position="-80 10 -60" animation="property: position; to: 80 10 -60;dir: alternate; easing:linear; dur: 10000;loop: true">
+          
+        </a-entity>
+
+        <a-entity  class="orbita circular" position="0 0 0" rotation="0 -45 0" animation="property: rotation; to: 0 220 0; dir: alternate; easing:linear; dur: 5000;loop: true">
+          
+        </a-entity>
+
+        <a-entity camera look-controls>
+            
+          <a-entity cursor="fuse:true; fuseTimeout:100" position="0 0 -1" raycaster="objects: .diana; showline: true" 
+          geometry="primitive: ring; radiusInner: 0.01; radiusOuter:0.02" material="shader:flat"></a-entity>
+          
+          <!--Elemento cursor para la interaccion con los meteoritos-->
+          <a-entity  position="0.1 -0.1 -0.5" rotation="0 185 0"  gltf-model="#arma" ></a-entity>
+
+
+          <a-text value="OBJETIVOS GOLPEADOS: 0" color="black" position="-1.2 0.7 -1" font="dejavu" width="2"></a-text>
+      
+        </a-entity>
+
+    </a-scene>
+  </body>
+</html>
